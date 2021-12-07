@@ -1,14 +1,9 @@
 const fs = require('fs')
-let input = fs
-  .readFileSync(`${__dirname}/input.txt`)
-  .toString()
-  .split('\n')
-  .map(Number)
+let input = fs.readFileSync(`${__dirname}/input.txt`).toString().split('\n').map(Number)
 
 const part1 = () => {
   return input.reduce(
-    (prev, v, i, arr) =>
-      arr[i - 1] ? (v > arr[i - 1] ? prev + 1 : prev) : prev,
+    (prev, v, i, arr) => (arr[i - 1] ? (v > arr[i - 1] ? prev + 1 : prev) : prev),
     0
   )
 }

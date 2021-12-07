@@ -41,9 +41,7 @@ const part2 = () => {
         vents[i][y1]++
       }
     } else {
-      let coords = [...Array(Math.max(x1, x2) - Math.min(x1, x2) + 1)].map(
-        (_) => [0, 0]
-      )
+      let coords = [...Array(Math.max(x1, x2) - Math.min(x1, x2) + 1)].map((_) => [0, 0])
       let index = 0
       if (x1 < x2) {
         for (let i = x1; i <= x2; i++) {

@@ -55,8 +55,7 @@ const part2 = () => {
         [0, 0]
       )
 
-      if (zero > one)
-        co2Numbers = co2Numbers.filter((x) => parseInt(x[i]) === 1)
+      if (zero > one) co2Numbers = co2Numbers.filter((x) => parseInt(x[i]) === 1)
       else co2Numbers = co2Numbers.filter((x) => parseInt(x[i]) === 0)
     }
   }

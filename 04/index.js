@@ -32,13 +32,9 @@ const part1 = () => {
         }
 
         const tBoard = board[0].map((_, i) => board.map((row) => row[i]))
-        if (
-          board.some((x) => x.every((y) => y[1])) ||
-          tBoard.some((x) => x.every((y) => y[1]))
-        ) {
+        if (board.some((x) => x.every((y) => y[1])) || tBoard.some((x) => x.every((y) => y[1]))) {
           const unmarked = board.reduce(
-            (acc, val) =>
-              acc + val.reduce((acc, val) => (!val[1] ? acc + val[0] : acc), 0),
+            (acc, val) => acc + val.reduce((acc, val) => (!val[1] ? acc + val[0] : acc), 0),
             0
           )
           score = unmarked * number
@@ -77,17 +73,12 @@ const part2 = () => {
         }
 
         const tBoard = board[0].map((_, i) => board.map((row) => row[i]))
-        if (
-          board.some((x) => x.every((y) => y[1])) ||
-          tBoard.some((x) => x.every((y) => y[1]))
-        ) {
+        if (board.some((x) => x.every((y) => y[1])) || tBoard.some((x) => x.every((y) => y[1]))) {
           if (!wonBoards.includes(a)) wonBoards.push(a)
           if (wonBoards.length === game.length) {
             // last won board
             const unmarked = board.reduce(
-              (acc, val) =>
-                acc +
-                val.reduce((acc, val) => (!val[1] ? acc + val[0] : acc), 0),
+              (acc, val) => acc + val.reduce((acc, val) => (!val[1] ? acc + val[0] : acc), 0),
               0
             )
             score = unmarked * number
