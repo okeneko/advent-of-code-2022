@@ -1,7 +1,6 @@
 const fs = require('fs')
 const input = fs
-  .readFileSync(`${__dirname}/input.txt`)
-  .toString()
+  .readFileSync(`${__dirname}/input.txt`, 'utf8')
   .split('\n')
   .map((x) => x.split('').map(Number))
 
