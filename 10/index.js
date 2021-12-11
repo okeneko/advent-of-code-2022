@@ -2,28 +2,7 @@ const fs = require('fs')
 const input = fs.readFileSync(`${__dirname}/input.txt`, 'utf8').split('\n')
 
 const isOpener = (x) => '([{<'.includes(x)
-const getOpposite = (x) => {
-  switch (x) {
-    case '(':
-      return ')'
-    case ')':
-      return '('
-    case '[':
-      return ']'
-    case ']':
-      return '['
-    case '{':
-      return '}'
-    case '}':
-      return '{'
-    case '<':
-      return '>'
-    case '>':
-      return '<'
-    default:
-      break
-  }
-}
+const opposite = { '(': ')', ')': '(', '[': ']', ']': '[', '{': '}', '}': '{', '<': '>', '>': '<' }
 
 const part1 = () => {
   const illegalChars = input.flatMap((line) => {
@@ -36,7 +15,7 @@ const part1 = () => {
         continue
       }
 
-      if (getOpposite(a) === stack[stack.length - 1]) stack.pop()
+      if (opposite[a] === stack[stack.length - 1]) stack.pop()
       else {
         result.push(a)
         break
@@ -63,11 +42,11 @@ const part2 = () => {
           continue
         }
 
-        if (getOpposite(a) === stack[stack.length - 1]) stack.pop()
+        if (opposite[a] === stack[stack.length - 1]) stack.pop()
         else return [] // illegal
       }
 
-      return stack.map((x) => getOpposite(x)).reverse()
+      return stack.map((x) => opposite[x]).reverse()
     })
     .filter((x) => x.length > 0)
 
