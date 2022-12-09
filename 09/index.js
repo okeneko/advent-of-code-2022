@@ -63,7 +63,6 @@ const part2 = () => {
   positions.push([...tail])
 
   input.forEach(([to, steps]) => {
-    console.log(`---- ${to} ${steps} ----`)
     for (let i = 0; i < steps; i++) {
       switch (to) {
         case 'R':
@@ -106,7 +105,6 @@ const part2 = () => {
       })
 
       if (!positions.find(([x, y]) => x === tail[0] && y === tail[1])) positions.push([...tail])
-      console.log(tail)
     }
   })
 
